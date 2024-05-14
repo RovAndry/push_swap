@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: randrina <randrina@student.42antanana      +#+  +:+       +#+        */
+/*   By: ghost <ghost@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 09:55:26 by randrina          #+#    #+#             */
-/*   Updated: 2024/05/04 01:42:32 by randrina         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:59:38 by ghost            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int			mov_nbr(int mov_a, int mov_b);
 int			find_cible(t_stack *stack, int index);
 int			to_top(t_stack *stack, int index);
 int			ft_check_final(t_stack *stack);
-int			mov_with_pos(t_stack *a, t_stack *b, int aindex, int bindex);
-int			mov_with_neg(t_stack *a, t_stack *b, int aindex, int bindex);
+void		mov_with_pos(t_stack *a, t_stack *b, int aindex, int bindex);
+void		mov_with_neg(t_stack *a, t_stack *b, int aindex, int bindex);
 long int	ft_atoi(char *str);
 char		**ft_check_input(char **argv, int argc);
 char		**init_table(void);

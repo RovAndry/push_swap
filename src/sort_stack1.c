@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: randrina <randrina@student.42antanana      +#+  +:+       +#+        */
+/*   By: ghost <ghost@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 10:39:42 by randrina          #+#    #+#             */
-/*   Updated: 2024/05/04 02:52:18 by randrina         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:27:41 by ghost            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	mov_with_neg(t_stack *a, t_stack *b, int aindex, int bindex)
+void	mov_with_neg(t_stack *a, t_stack *b, int aindex, int bindex)
 {
 	int	count;
 
@@ -24,9 +24,19 @@ int	mov_with_neg(t_stack *a, t_stack *b, int aindex, int bindex)
 		bindex ++;
 		count ++;
 	}
+	while (aindex < 0)
+	{
+		aindex ++;
+		rotate_a(a);
+	}
+	while (bindex < 0)
+	{
+		bindex ++;
+		rotate_b(b);
+	}
 }
 
-int	mov_with_pos(t_stack *a, t_stack *b, int aindex, int bindex)
+void	mov_with_pos(t_stack *a, t_stack *b, int aindex, int bindex)
 {
 	int	count;
 
@@ -37,6 +47,16 @@ int	mov_with_pos(t_stack *a, t_stack *b, int aindex, int bindex)
 		aindex --;
 		bindex --;
 		count ++;
+	}
+	while (aindex > 0)
+	{
+		aindex --;
+		rotate_a(a);
+	}
+	while (bindex > 0)
+	{
+		bindex --;
+		rotate_b(b);
 	}
 }
 
@@ -49,29 +69,19 @@ void	ft_push_b(t_stack *a, t_stack *b)
 
 	aindex = index_to_mov(a, b);
 	bindex = find_cible(b, aindex);
+	printf("\n");
+	ft_show_stack(a, b);
+	printf("\n");
 	mov_a = to_top(a, aindex);
 	mov_b = to_top(b, bindex);
-	if (mov_a > 0 && mov_b > 0)
-	{
-		mov_a = mov_a - mov_with_pos(a, b, aindex, bindex);
-		mov_b = mov_b - mov_with_pos(a, b, aindex, bindex);
-	}
-	else if (mov_a < 0 && mov_b < 0)
-	{
-		mov_a = mov_with_neg(a, b, aindex, bindex);
-		mov_b = mov_with_neg(a, b, aindex, bindex);
-	}
-	if (mov_a != 0)
-		moov_a(a, mov_a);
-	if (mov_b != 0)
-		moov_b(b, mov_b);
+	printf("\t\t aindex : %d, \tcible : %d \n", mov_a, mov_b);
+	mov_with_pos(a, b, mov_a, mov_b);
+	mov_with_neg(a, b, mov_a, mov_b);
 }
 
 void	ft_sort_stack1(t_stack *a, t_stack *b)
 {
-	int	index;
-	int	movb;
-	int	totop;
+	//int	movb;
 
 	ft_insert_index(a);
 	first_push(a, b);
@@ -80,11 +90,13 @@ void	ft_sort_stack1(t_stack *a, t_stack *b)
 		ft_push_b(a, b);
 		push_b(a, b);
 	}
+	/*
 	ft_three_sort(a);
+	ft_show_stack(a, b);
 	while (b->top)
 	{
 		movb = to_top(b, ft_maxindex(b));
 		moov_b(b, movb);
 		push_a(a, b);
-	}
+	}*/
 }

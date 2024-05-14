@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: randrina <randrina@student.42antanana      +#+  +:+       +#+        */
+/*   By: ghost <ghost@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:07:37 by randrina          #+#    #+#             */
-/*   Updated: 2024/05/04 01:50:11 by randrina         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:05:29 by ghost            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int ft_first_moov(t_stack *stack)
     moov = to_top(stack, index);
     while (tmp)
     {
-        if (tmp->index < maxindex - 2 && abs_value((stack, tmp->index)) < abs_value(moov))
+        if (tmp->index < maxindex - 2 && abs_value(to_top(stack, tmp->index)) < abs_value(moov))
         {
             moov = to_top(stack, tmp->index);
             index = tmp->index;
