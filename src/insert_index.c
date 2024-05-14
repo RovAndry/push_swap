@@ -63,12 +63,12 @@ int index_to_mov(t_stack *a, t_stack *b)
     int     index;
     int     mov;
 
-    max = ft_maxindex(a) - 2;
+    max = ft_maxindex(a) / 2;
     mov = 1000;
     tmp = a->top;
     while (tmp)
     {
-        if (mov > index_moov(a, b, tmp->index) && tmp->index < max)
+        if (mov > index_moov(a, b, tmp->index) && tmp->index <= max)
         {
             mov = index_moov(a, b, index);
             index = tmp->index;

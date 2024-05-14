@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 		{
 			b = ft_init();
 			ft_sort_stack(a, b);
-			ft_show_stack(a, b);
-			printf("\ncheck[%d]\n", ft_check_final(a));
+//			ft_show_stack(a, b);
+//			printf("\ncheck[%d]\n", ft_check_final(a));
 		}
 	}
 	return (0);

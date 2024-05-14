@@ -27,12 +27,12 @@ void	mov_with_neg(t_stack *a, t_stack *b, int aindex, int bindex)
 	while (aindex < 0)
 	{
 		aindex ++;
-		rotate_a(a);
+		reverse_a(a);
 	}
 	while (bindex < 0)
 	{
 		bindex ++;
-		rotate_b(b);
+		reverse_b(b);
 	}
 }
 
@@ -69,19 +69,15 @@ void	ft_push_b(t_stack *a, t_stack *b)
 
 	aindex = index_to_mov(a, b);
 	bindex = find_cible(b, aindex);
-	printf("\n");
-	ft_show_stack(a, b);
-	printf("\n");
 	mov_a = to_top(a, aindex);
 	mov_b = to_top(b, bindex);
-	printf("\t\t aindex : %d, \tcible : %d \n", mov_a, mov_b);
 	mov_with_pos(a, b, mov_a, mov_b);
 	mov_with_neg(a, b, mov_a, mov_b);
 }
 
 void	ft_sort_stack1(t_stack *a, t_stack *b)
 {
-	//int	movb;
+	int	movb;
 
 	ft_insert_index(a);
 	first_push(a, b);
@@ -90,13 +86,11 @@ void	ft_sort_stack1(t_stack *a, t_stack *b)
 		ft_push_b(a, b);
 		push_b(a, b);
 	}
-	/*
 	ft_three_sort(a);
-	ft_show_stack(a, b);
 	while (b->top)
 	{
 		movb = to_top(b, ft_maxindex(b));
 		moov_b(b, movb);
 		push_a(a, b);
-	}*/
+	}
 }

@@ -87,6 +87,7 @@ void		ft_push_b(t_stack *a, t_stack *b);
 void		moov_a(t_stack *a, int mov);
 void		moov_b(t_stack *b, int mov);
 void		first_push(t_stack *a, t_stack *b);
+void		ft_sort_stack2(t_stack *a, t_stack *b);
 t_stack		*generate_stack_a(char **argv, int argc);
 t_stack		*ft_init(void);
 

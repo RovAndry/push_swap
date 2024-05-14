@@ -83,5 +83,5 @@ void	ft_sort_stack(t_stack *a, t_stack *b)
 	else if (ft_stacklen(a) <= 3)
 		ft_three_sort(a);
 	else
-		ft_sort_stack1(a, b);
+		ft_sort_stack2(a, b);
 }
